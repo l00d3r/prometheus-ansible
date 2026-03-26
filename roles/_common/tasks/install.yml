@@ -118,7 +118,8 @@
         list_files: true
         extra_opts: "{{ _common_binary_unarchive_opts | default(omit, true) }}"
         remote_src: true
-        creates: "{{ _common_local_cache_path }}/{{ __common_binary_basename }}"
+        creates: "{{ _common_local_cache_path }}/{{ item }}"
+      loop: "{{ _common_binaries }}"
       check_mode: false
       throttle: 1  # see prometheus-community/ansible#457
       when: __common_binary_basename is search('\.zip$|\.tar\.gz$')
