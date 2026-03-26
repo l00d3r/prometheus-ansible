@@ -151,6 +151,7 @@
     mode: 0755
     owner: root
     group: root
+    remote_src: true
   loop: "{{ _common_binaries }}"
   become: true
   notify:
