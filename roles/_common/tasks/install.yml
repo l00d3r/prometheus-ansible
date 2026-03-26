@@ -54,7 +54,6 @@
     - download
     - "{{ ansible_parent_role_names | first | regex_replace(ansible_collection_name ~ '.', '') }}_download"
   become: false
-  delegate_to: localhost
   block:
     - name: "Create localhost binary cache path"
       ansible.builtin.file:
